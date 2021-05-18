@@ -1,0 +1,32 @@
+//Useful Unity parallax infinite Background: https://www.youtube.com/watch?v=wBol2xzxCOU&t=116s
+//Here is the code for parllax effect in my background design, the problem that I am currently facing is the game mode going to fast. 
+
+//Below are the code in C# for Parlax effect//
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class BackgroundHelper : MonoBehaviour
+{
+    public float speed = 0;
+    float pos = 0;
+    private RawImage image;
+    // Start is called before the first frame update
+    void Start()
+    {
+        image = GetComponent<RawImage>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        pos += speed;
+
+        if (pos > 1.0F)
+
+            pos -= 1.0F;
+
+        image.uvRect = new Rect(pos, 0, 1, 1);
+    }
